@@ -1,7 +1,5 @@
-class Distillery < ActiveRecord::Base
+class Category < ActiveRecord::Base
   attr_accessible :name
-
-  has_many :whiskeys
 
   validates :name, { :presence => :true, :uniqueness => true }
 end

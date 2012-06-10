@@ -22,10 +22,14 @@
     <%= dist_form.text_field :name %>
   </div>
   <% end %>
+
+  <%= f.fields_for :category do |cat_form| %>
   <div class="field">
-    <%= f.label :category %><br />
-    <%= f.text_field :category %>
+    <%= cat_form.label :name, :Category %><br />
+    <%= cat_form.text_field :name %>
   </div>
+  <% end %>
+
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description %>

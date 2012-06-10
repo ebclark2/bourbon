@@ -1,3 +1,4 @@
+require 'distilleries_helper'
 
 class WhiskeysController < ApplicationController
   # GET /whiskeys
@@ -42,12 +43,6 @@ class WhiskeysController < ApplicationController
   # POST /whiskeys.json
   def create
     whiskeyParams = params[:whiskey]
-    dist = Distillery.find_by_name(whiskeyParams[:distillery])
-    if dist == nil
-      dist = Distillery.new(:name => whiskeyParams[:distillery])
-    end
-    whiskeyParams[:distillery] = dist
-    @distillery = dist
     @whiskey = Whiskey.new(whiskeyParams)
 
     respond_to do |format|
@@ -68,11 +63,6 @@ class WhiskeysController < ApplicationController
 
     respond_to do |format|
       whiskeyParams = params[:whiskey]
-      dist = Distillery.find_by_name(whiskeyParams[:distillery])
-      if dist == nil
-        dist = Distillery.new(:name => whiskeyParams[:distillery])
-      end
-      whiskeyParams[:distillery] = dist
       if @whiskey.update_attributes(whiskeyParams)
         format.html { redirect_to @whiskey, :notice => 'Whiskey was successfully updated.' }
         format.json { head :no_content }
