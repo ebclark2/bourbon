@@ -3,7 +3,7 @@
 <span class="whiskey-name"><b><%= link_to whiskey.name, whiskey %></b></span><br/>
 <span class="whiskey-distillery">Distillery: 
 <% if whiskey.distillery != nil %>
-<%= link_to whiskey.distillery.name, "/distillerys/".concat(whiskey.distillery.name) %>
+<%= link_to whiskey.distillery.name, whiskey.distillery %>
 <% else %>
 <%= :Unknown %>
 <% end %>

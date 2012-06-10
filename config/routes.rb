@@ -1,7 +1,7 @@
 Bourbon::Application.routes.draw do
  
   resources :whiskeys
-  resources :distillerys, :only => :show
+  resources :distilleries, :only => :show
 
   root :to => redirect("/whiskeys")  
 
