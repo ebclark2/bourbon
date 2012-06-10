@@ -1,6 +1,11 @@
-<h1><%= @distillery.name %> Whiskeys</h1>
-<% whiskeys = @distillery.whiskeys %>
+<p id="notice"><%= notice %></p>
 
+<div>
+<h1 style="display:inline;"><%= @distillery.name %> Whiskeys</h1>
+<%= link_to 'Edit', edit_distillery_path(@distillery) %> 
+</div><br/>
+
+<% whiskeys = @distillery.whiskeys %>
 <table>
   <% whiskeys.each do |whiskey| %>
   <tr>

@@ -1,0 +1,23 @@
+<h1>Distilleries</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @distilleries.each do |distillery| %>
+  <tr>
+    <td><%= distillery.name %></td>
+    <td><%= link_to 'Show', distillery %></td>
+    <td><%= link_to 'Edit', edit_distillery_path(distillery) %></td>
+    <td><%= link_to 'Delete', distillery, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Distillery', new_distillery_path %>
