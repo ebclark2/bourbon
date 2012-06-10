@@ -1,29 +1,9 @@
 <h1>Whiskeys</h1>
 
 <table>
+  <% @whiskeys.each do |whiskey| %>
   <tr>
-    <th>Name</th>
-    <th>Distillery</th>
-    <th>Category</th>
-<!--    <th>Description</th> -->
-    <th></th>
-    <th></th>
-    <th></th>
+    <%= render whiskey %>
   </tr>
-
-<% @whiskeys.each do |whiskey| %>
-  <tr>
-    <td><%= whiskey.name %></td>
-    <td><%= whiskey.distillery %></td>
-    <td><%= whiskey.category %></td>
-<!--    <td><%= whiskey.description %></td> -->
-    <td><%= link_to 'Show', whiskey %></td>
-    <td><%= link_to 'Edit', edit_whiskey_path(whiskey) %></td>
-    <td><%= link_to 'Delete', whiskey, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Whiskey', new_whiskey_path %>

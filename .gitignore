@@ -17,6 +17,7 @@
 *.gem
 *.rbc
 *.swp
+*.bak
 .bundle
 .config
 coverage
