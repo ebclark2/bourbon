@@ -9,9 +9,27 @@
 
 <body style="background-color:#bbbbbb;">
 
-<h1>The Bourbon Project</h1>
+<div id="body-div">
+<div id="body-top-div">
+<h1 style="text-align: center; ">The Bourbon Project</h1>
 
+<div id="list-nav-div">
+  <ul id="list-nav">
+<li><a href="#">Home</a></li>
+<li><a href="#">About Us</a></li>
+<li><a href="#">Services</a></li>
+<li><a href="#">Products</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+</div>
+</div>
+<br/>
+
+<div id="body-main-div">
+<div id="body-main-content-div">
 <%= yield %>
-
+</div>
+</div>
+</div>
 </body>
 </html>

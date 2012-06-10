@@ -1,0 +1,30 @@
+div#body-div {
+#background:#999999;
+margin:20px;
+#padding:5px 0;
+#border:2px solid black;
+#-moz-border-radius: 15px;
+#border-radius: 15px;
+}
+
+div#body-main-div {
+#background:#999999;
+#margin:20px;
+#padding:5px 0;
+border:1px solid black;
+-moz-border-bottom-radius: 15px;
+border-bottom-left-radius: 15px;
+border-bottom-right-radius: 15px;
+}
+
+div#body-main-content-div {
+margin: 20px;
+}
+
+div#body-top-div {
+#background:#777777;
+height: 100%;
+border:1px solid black;
+border-top-left-radius: 15px;
+border-top-right-radius: 15px;
+}
