@@ -16,19 +16,10 @@
     <%= f.text_field :name %>
   </div>
 
-  <%= f.fields_for :distillery do |dist_form| %>
   <div class="field">
-    <%= dist_form.label :name, :Distillery %><br />
-    <%= dist_form.text_field :name %>
+    <%= f.label :distillery_id, :Distillery %><br />
+    <%= f.select :distillery_id, get_distilleries_to_id_hash %>
   </div>
-  <% end %>
-
-  <%= f.fields_for :category do |cat_form| %>
-  <div class="field">
-    <%= cat_form.label :name, :Category %><br />
-    <%= cat_form.text_field :name %>
-  </div>
-  <% end %>
 
   <div class="field">
     <%= f.label :description %><br />

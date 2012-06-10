@@ -4,4 +4,9 @@ class Distillery < ActiveRecord::Base
   has_many :whiskeys
 
   validates :name, { :presence => :true, :uniqueness => true }
+
+  def to_s
+    return self.name
+  end
+ 
 end

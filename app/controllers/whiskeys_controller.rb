@@ -43,6 +43,11 @@ class WhiskeysController < ApplicationController
   # POST /whiskeys.json
   def create
     whiskeyParams = params[:whiskey]
+    whiskeyParams = params[:whiskey]
+    if !whiskeyParams.has_key?(:distillery) and whiskeyParams.has_key?(:distillery_id)
+      distillery = Distillery.find(whiskeyParams[:distillery_id])
+      whiskeyParams[:distillery] = distillery
+    end
     @whiskey = Whiskey.new(whiskeyParams)
 
     respond_to do |format|
@@ -63,6 +68,10 @@ class WhiskeysController < ApplicationController
 
     respond_to do |format|
       whiskeyParams = params[:whiskey]
+      if !whiskeyParams.has_key?(:distillery) and whiskeyParams.has_key?(:distillery_id)
+        distillery = Distillery.find(whiskeyParams[:distillery_id])
+        whiskeyParams[:distillery] = distillery
+      end
       if @whiskey.update_attributes(whiskeyParams)
         format.html { redirect_to @whiskey, :notice => 'Whiskey was successfully updated.' }
         format.json { head :no_content }
