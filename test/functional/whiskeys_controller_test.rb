@@ -18,7 +18,7 @@ class WhiskeysControllerTest < ActionController::TestCase
 
   test "should create whiskey" do
     assert_difference('Whiskey.count') do
-      post :create, :whiskey => { :category => @whiskey.category, :description => @whiskey.description, :distillery => @whiskey.distillery, :name => @whiskey.name }
+      post :create, :whiskey => { :category => @whiskey.category, :description => @whiskey.description, :name => @whiskey.name }
     end
 
     assert_redirected_to whiskey_path(assigns(:whiskey))
@@ -35,7 +35,7 @@ class WhiskeysControllerTest < ActionController::TestCase
   end
 
   test "should update whiskey" do
-    put :update, :id => @whiskey, :whiskey => { :category => @whiskey.category, :description => @whiskey.description, :distillery => @whiskey.distillery, :name => @whiskey.name }
+    put :update, :id => @whiskey, :whiskey => { :category => @whiskey.category, :description => @whiskey.description, :name => @whiskey.name }
     assert_redirected_to whiskey_path(assigns(:whiskey))
   end
 

@@ -10,15 +10,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120609212726) do
+ActiveRecord::Schema.define(:version => 20120610143156) do
+
+  create_table "distilleries", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "whiskeys", :force => true do |t|
     t.string   "name"
-    t.string   "distillery"
     t.string   "category"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "distillery_id"
   end
 
 end

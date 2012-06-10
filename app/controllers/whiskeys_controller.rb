@@ -41,7 +41,14 @@ class WhiskeysController < ApplicationController
   # POST /whiskeys
   # POST /whiskeys.json
   def create
-    @whiskey = Whiskey.new(params[:whiskey])
+    whiskeyParams = params[:whiskey]
+    dist = Distillery.find_by_name(whiskeyParams[:distillery])
+    if dist == nil
+      dist = Distillery.new(:name => whiskeyParams[:distillery])
+    end
+    whiskeyParams[:distillery] = dist
+    @distillery = dist
+    @whiskey = Whiskey.new(whiskeyParams)
 
     respond_to do |format|
       if @whiskey.save
@@ -60,7 +67,13 @@ class WhiskeysController < ApplicationController
     @whiskey = Whiskey.find(params[:id])
 
     respond_to do |format|
-      if @whiskey.update_attributes(params[:whiskey])
+      whiskeyParams = params[:whiskey]
+      dist = Distillery.find_by_name(whiskeyParams[:distillery])
+      if dist == nil
+        dist = Distillery.new(:name => whiskeyParams[:distillery])
+      end
+      whiskeyParams[:distillery] = dist
+      if @whiskey.update_attributes(whiskeyParams)
         format.html { redirect_to @whiskey, :notice => 'Whiskey was successfully updated.' }
         format.json { head :no_content }
       else

@@ -2,9 +2,9 @@
 class DistillerysController < ApplicationController
   # GET /Distillerys/:distillery
   def show
-    @distillery = params[:id]
-    puts @distillery
-    @whiskeys = Whiskey.find_all_by_distillery(@distillery)
+    distilleryName = params[:id]
+    @distillery = Distillery.find_by_name(distilleryName)
+    @whiskeys = @distillery.whiskeys
 
     respond_to do |format|
       format.html # show.html.erb
