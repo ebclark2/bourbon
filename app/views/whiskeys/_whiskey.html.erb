@@ -1,1 +1,8 @@
-<p><%= whiskey.name %></p>
+<div class="whiskey-div-main">
+<p>
+<span class="whiskey-name"><b><%= link_to whiskey.name, whiskey %></b></span><br/>
+<span class="whiskey-distillery">Distillery: <%= link_to whiskey.distillery, "/distillerys/".concat(whiskey.distillery) %></span>
+</p>
+<p><%= whiskey.description %></p>
+
+</div>

@@ -3,7 +3,7 @@ class WhiskeysController < ApplicationController
   # GET /whiskeys
   # GET /whiskeys.json
   def index
-    @whiskeys = Whiskey.all
+    @whiskeys = Whiskey.find(:all, :order => :name)
 
     respond_to do |format|
       format.html # index.html.erb
