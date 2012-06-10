@@ -1,11 +1,11 @@
-<h1>Listing whiskeys</h1>
+<h1>Whiskeys</h1>
 
 <table>
   <tr>
     <th>Name</th>
     <th>Distillery</th>
     <th>Category</th>
-    <th>Description</th>
+<!--    <th>Description</th> -->
     <th></th>
     <th></th>
     <th></th>
@@ -16,10 +16,10 @@
     <td><%= whiskey.name %></td>
     <td><%= whiskey.distillery %></td>
     <td><%= whiskey.category %></td>
-    <td><%= whiskey.description %></td>
+<!--    <td><%= whiskey.description %></td> -->
     <td><%= link_to 'Show', whiskey %></td>
     <td><%= link_to 'Edit', edit_whiskey_path(whiskey) %></td>
-    <td><%= link_to 'Destroy', whiskey, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Delete', whiskey, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

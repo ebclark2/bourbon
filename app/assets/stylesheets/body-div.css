@@ -18,7 +18,8 @@ border-bottom-right-radius: 15px;
 }
 
 div#body-main-content-div {
-margin: 20px;
+padding: 20px;
+#margin: 20px;
 }
 
 div#body-top-div {
