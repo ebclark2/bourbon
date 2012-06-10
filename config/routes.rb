@@ -1,10 +1,9 @@
 Bourbon::Application.routes.draw do
+ 
   resources :whiskeys
-  resources :distillerys
+  resources :distillerys, :only => :show
 
   root :to => redirect("/whiskeys")  
-
-  get '/distillerys/:distillery' => 'Distillery#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
