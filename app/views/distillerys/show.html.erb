@@ -1,7 +1,8 @@
 <h1><%= @distillery.name %> Whiskeys</h1>
+<% whiskeys = @distillery.whiskeys %>
 
 <table>
-  <% @whiskeys.each do |whiskey| %>
+  <% whiskeys.each do |whiskey| %>
   <tr>
     <%= render whiskey %>
   </tr>
