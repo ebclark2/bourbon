@@ -16,12 +16,4 @@ class Whiskey < ActiveRecord::Base
   validates :description, :presence =>true
   validates :name, :presence =>true
 
-
-  def distillery_name
-    if self.distillery != nil
-      return self.distillery.name
-    end
-    return nil
-  end
- 
 end
