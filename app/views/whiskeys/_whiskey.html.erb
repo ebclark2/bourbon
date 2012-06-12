@@ -7,6 +7,13 @@
 <% else %>
 <%= :Unknown %>
 <% end %>
+</span><br/>
+<span class="whiskey-distillery">Category: 
+<% if whiskey.category != nil %>
+<%= link_to whiskey.category.name, whiskey.category %>
+<% else %>
+<%= :Unknown %>
+<% end %>
 </span>
 </p>
 <p><%= whiskey.description %></p>

@@ -1,10 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @category.name %>
-</p>
+<div>
+<h1 style="display:inline;"><%= @category.name %></h1>
+<%= link_to 'Edit', edit_distillery_path(@category) %>
+</div><br/>
 
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<% whiskeys = @category.whiskeys %>
+<table>
+  <% whiskeys.each do |whiskey| %>
+  <tr>
+    <%= render whiskey %>
+  </tr>
+  <% end %>
+</table>
