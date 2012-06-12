@@ -1,5 +1,3 @@
-require 'distilleries_helper'
-
 class WhiskeysController < ApplicationController
   # GET /whiskeys
   # GET /whiskeys.json
@@ -46,11 +44,19 @@ class WhiskeysController < ApplicationController
   # POST /whiskeys.json
   def create
     whiskeyParams = params[:whiskey]
-    whiskeyParams = params[:whiskey]
+
     if !whiskeyParams.has_key?(:distillery) and whiskeyParams.has_key?(:distillery_id)
       distillery = Distillery.find(whiskeyParams[:distillery_id])
       whiskeyParams[:distillery] = distillery
+      whiskeyParams.delete(:distillery_id)
     end
+
+    if !whiskeyParams.has_key?(:category) and whiskeyParams.has_key?(:category_id)
+      category = Category.find(whiskeyParams[:category_id])
+      whiskeyParams[:category] = category
+      whiskeyParams.delete(:category_id)
+    end
+
     @whiskey = Whiskey.new(whiskeyParams)
 
     respond_to do |format|
@@ -73,10 +79,19 @@ class WhiskeysController < ApplicationController
 
     respond_to do |format|
       whiskeyParams = params[:whiskey]
+
       if !whiskeyParams.has_key?(:distillery) and whiskeyParams.has_key?(:distillery_id)
         distillery = Distillery.find(whiskeyParams[:distillery_id])
         whiskeyParams[:distillery] = distillery
+        whiskeyParams.delete(:distillery_id)
       end
+
+      if !whiskeyParams.has_key?(:category) and whiskeyParams.has_key?(:category_id)
+        category = Category.find(whiskeyParams[:category_id])
+        whiskeyParams[:category] = category
+        whiskeyParams.delete(:category_id)
+      end
+
       if @whiskey.update_attributes(whiskeyParams)
         format.html { redirect_to @whiskey, :notice => 'Whiskey was successfully updated.' }
         format.json { head :no_content }

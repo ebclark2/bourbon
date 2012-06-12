@@ -1,5 +1,7 @@
 Bourbon::Application.routes.draw do
  
+  resources :categories
+
   get "distilleries/all"
 
   resources :whiskeys

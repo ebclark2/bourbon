@@ -11,7 +11,7 @@ class Whiskey < ActiveRecord::Base
     :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
   }
 
-  attr_accessible :description, :distillery, :distillery_id, :name, :distillery_attributes, :category, :category_attributes
+  attr_accessible :description, :distillery, :name, :distillery_attributes, :category, :category_attributes
 
   validates :description, :presence =>true
   validates :name, :presence =>true

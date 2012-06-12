@@ -19,4 +19,12 @@ module WhiskeysHelper
     return dists_to_id
   end
 
+  def get_categories_to_id_hash
+    categories = Category.find(:all, :order => :name)
+    cats_to_id = Hash.new
+    categories.each do |cat|
+      cats_to_id[cat] = cat.id
+    end
+    return cats_to_id
+  end
 end
